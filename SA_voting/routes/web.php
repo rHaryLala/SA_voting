@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CandidatController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuperAdminController;
 
 Route::view('/', 'welcome');
 
@@ -14,15 +16,15 @@ Route::view('admin', 'admin')
     ->middleware(['auth', 'verified', 'admin'])
     ->name('admin');
 
-Route::view('superadmin', 'superadmin')
+Route::get('superadmin', [SuperAdminController::class, 'index'])
     ->middleware(['auth', 'verified', 'superadmin'])
     ->name('superadmin');
 
-Route::view('userdb', 'userdb')
+Route::get('userdb', [UserController::class, 'index'])
     ->middleware(['auth', 'verified', 'superadmin'])
     ->name('userdb');
 
-Route::view('candidatdb', 'candidatdb')
+Route::get('candidatdb', [CandidatController::class, 'index'])
     ->middleware(['auth', 'verified', 'superadmin'])
     ->name('candidatdb');
 

@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use App\Models\Candidat; // Import du modèle Candidat
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class VoteController extends Controller
+class Candidat extends Model
 {
-    public function index()
-    {
-        return view('vote');
-    }
+    use HasFactory;
 }

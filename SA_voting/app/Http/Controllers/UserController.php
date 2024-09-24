@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidat;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class CandidatController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
         // Récupérer tous les utilisateurs
-        $candidats = Candidat::all();
+        $users = User::all();
 
         // Passer les utilisateurs à la vue
-        return view('candidatdb', compact('candidats'));
+        return view('userdb', compact('users'));
     }
 }
