@@ -170,6 +170,7 @@
 
 
 <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+
     <div class="sticky top-0 h-16 border-b bg-white dark:bg-gray-800 dark:border-gray-700 lg:py-2.5">
         <div class="flex items-center justify-between space-x-4 px-6 2xl:container">
             <h5 hidden class="text-2xl font-medium text-gray-600 lg:block dark:text-white">Liste des candidats</h5>
@@ -189,6 +190,7 @@
                     />
                 </svg>
             </button>
+            <button wire:click="$emit('openModal')" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter un candidat</button>
             <div class="flex space-x-4">
                 <!--search bar -->
                 <div hidden class="md:block">
@@ -215,6 +217,7 @@
                         />
                     </div>
                 </div>
+
                 <!--/search bar -->
                 <button
                     aria-label="search"
@@ -270,43 +273,57 @@
         </div>
     </div>
 
-<div class="px-6 pt-6 2xl:container">
-    <div class="container mx-auto p-6">
-        <div class="overflow-x-auto shadow-lg rounded-lg">
-            <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                <thead>
-                <tr class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 uppercase text-sm leading-normal">
-                    <th class="py-3 px-6 text-left">Nom</th>
-                    <th class="py-3 px-6 text-left">Prénom</th>
-                    <th class="py-3 px-6 text-left">Mention</th>
-                    <th class="py-3 px-6 text-left">Actions</th>
-                </tr>
-                </thead>
-                <tbody class="text-gray-600 dark:text-gray-400 text-sm font-light">
-                @foreach($candidats as $candidat)
-                    <tr class="border-b border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <td class="py-3 px-6">{{ $candidat ->name }}</td>
-                        <td class="py-3 px-6">{{ $candidat ->last_name }}</td>
-                        <td class="py-3 px-6">{{ $candidat ->mention }}</td>
-                        <td class="py-3 px-6 flex space-x-2">
-                            <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                                <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M17.414 2.586a2 2 0 0 1 0 2.828l-10 10A2 2 0 0 1 6.586 16H4a1 1 0 0 1-1-1v-2.586a2 2 0 0 1 .586-1.414l10-10a2 2 0 0 1 2.828 0zM15 4.414 13.586 3 4 12.586V14h1.414L15 4.414z"/>
-                                </svg>
-                                Modifier
-                            </button>
-
-                            <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800">
-                                <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 2a1 1 0 0 1 1 1v1h4V3a1 1 0 1 1 2 0v1a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1V3a1 1 0 0 1 1-1h4V2a1 1 0 0 1 1-1z"/>
-                                </svg>
-                                Supprimer
-                            </button>
-                        </td>
+    <div class="px-6 pt-6 2xl:container">
+        <div class="container mx-auto p-6">
+            <div class="overflow-x-auto shadow-lg rounded-lg">
+                <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                    <thead>
+                    <tr class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 uppercase text-sm leading-normal">
+                        <th class="py-3 px-6 text-left">Nom</th>
+                        <th class="py-3 px-6 text-left">Prénom</th>
+                        <th class="py-3 px-6 text-left">Mention</th>
+                        <th class="py-3 px-6 text-left">Vote</th>
+                        <th class="py-3 px-6 text-left">Actions</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="text-gray-600 dark:text-gray-400 text-sm font-light">
+                    @foreach($candidats as $candidat)
+                        <tr class="border-b border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <td class="py-3 px-6">{{ $candidat->name }}</td>
+                            <td class="py-3 px-6">{{ $candidat->last_name }}</td>
+                            <td class="py-3 px-6">{{ $candidat->mention }}</td>
+                            <td class="py-3 px-6">{{ $candidat->votes }}</td>
+                            <td class="py-3 px-6 flex space-x-2">
+                                <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                    <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M17.414 2.586a2 2 0 0 1 0 2.828l-10 10A2 2 0 0 1 6.586 16H4a1 1 0 0 1-1-1v-2.586a2 2 0 0 1 .586-1.414l10-10a2 2 0 0 1 2.828 0zM15 4.414 13.586 3 4 12.586V14h1.414L15 4.414z"/>
+                                    </svg>
+                                    Modifier
+                                </button>
+
+                                <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800">
+                                    <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 2a1 1 0 0 1 1 1v1h4V3a1 1 0 1 1 2 0v1a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1h1V3a1 1 0 0 1 1-1h4z"/>
+                                    </svg>
+                                    Supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+
+
+
+
+    @if (session()->has('message'))
+        <div class="mb-4 text-green-500">
+            {{ session('message') }}
+        </div>
+   @endif
+
+</body>
+</html>

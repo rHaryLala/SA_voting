@@ -28,6 +28,10 @@ Route::get('candidatdb', [CandidatController::class, 'index'])
     ->middleware(['auth', 'verified', 'superadmin'])
     ->name('candidatdb');
 
+Route::view('candidat', 'candidat')
+    ->middleware(['auth', 'verified', 'student'])
+    ->name('candidat');
+
 Route::view('resultatdb', 'resultatdb')
     ->middleware(['auth', 'verified', 'superadmin'])
     ->name('resultatdb');
@@ -40,9 +44,9 @@ Route::get('/vote', [VoteController::class, 'index'])
     ->middleware(['auth', 'verified', 'student'])
     ->name('vote');
 
-Route::get('/candidat', [CandidatController::class, 'index'])
+Route::post('/vote/{id}', [VoteController::class, 'vote'])
     ->middleware(['auth', 'verified', 'student'])
-    ->name('candidat');
+    ->name('vote.submit');
 
 
 

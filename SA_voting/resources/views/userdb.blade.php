@@ -280,6 +280,7 @@
                         <th class="py-3 px-6 text-left">Prénom</th>
                         <th class="py-3 px-6 text-left">Email</th>
                         <th class="py-3 px-6 text-left">Mention</th>
+                        <th class="py-3 px-6 text-left">Déjà voté</th>
                         <th class="py-3 px-6 text-left">Actions</th>
                     </tr>
                     </thead>
@@ -291,6 +292,7 @@
                             <td class="py-3 px-6">{{ $user->last_name }}</td>
                             <td class="py-3 px-6">{{ $user->email }}</td>
                             <td class="py-3 px-6">{{ $user->mention }}</td>
+                            <td class="py-3 px-6">{{ $user->has_voted }}</td>
                             <td class="py-3 px-6 flex space-x-2">
                                 <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
                                     <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

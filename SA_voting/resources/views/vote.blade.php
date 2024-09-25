@@ -35,7 +35,17 @@
                 </div>
 
                 <label role="button" for="toggle_nav" class="fixed w-full z-30 h-full top-0 left-0 bg-gray-700 bg-opacity-40 hidden peer-checked:block md:peer-checked:hidden"></label>
+                @if(session('error'))
+                    <div class="bg-red-500 text-white p-4 rounded mb-4">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
+                @if(session('success'))
+                    <div class="bg-green-500 text-white p-4 rounded mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="flex z-50 flex-col md:flex-row justify-between
                     items-center gap-y-4 p-6 bg-white dark:bg-gray-800 md:w-8/12
                     md:gap-y-4 md:p-0
@@ -119,32 +129,23 @@
             <!--Carte des candidats-->
             <div class="container mx-auto">
                 <div class="flex flex-wrap justify-center mb-4">
-                    <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
-                        <div class="bg-white rounded-[20px] shadow-md p-4">
-                            <img src="images/pdp/kerena.JPG" alt="Candidat 1" class="w-full rounded-[20px]">
-                            <h2 class="text-lg font-bold mt-5">Kerena Rotsitiana RANOARILALAO</h2>
-                            <p class="text-sm text-gray-500">Communication</p>
-                            <button class="bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-white font-bold py-2 px-4 rounded mt-5">Voter</button>
+                    @foreach($candidats as $candidat)
+                        <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
+                            <div class="bg-white rounded-[20px] shadow-md p-4">
+                                <img src="{{ asset($candidat->image) }}" alt="{{ $candidat->name }}" class="w-full rounded-[20px]">
+                                <h2 class="text-lg font-bold mt-5">{{ $candidat->name }} {{ $candidat->last_name }}</h2>
+                                <p class="text-sm text-gray-500">{{ $candidat->mention }}</p>
+                                <form action="{{ route('vote.submit', $candidat->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-white font-bold py-2 px-4 rounded mt-5">Voter</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
-                        <div class="bg-white rounded-[20px] shadow-md p-4">
-                            <img src="images/pdp/sabati.JPG" alt="Candidat 2" class="w-full rounded-[20px]">
-                            <h2 class="text-lg font-bold mt-5">Sabati MAHERINOTSONGAINA</h2>
-                            <p class="text-sm text-gray-500">Gestion</p>
-                            <button class="bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-white font-bold py-2 px-4 rounded mt-5">Voter</button>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
-                        <div class="bg-white rounded-[20px] shadow-md p-4">
-                            <img src="images/pdp/hary.JPG" alt="Candidat 3" class="w-full rounded-[20px]">
-                            <h2 class="text-lg font-bold mt-5">Hary Lala RABENAMANA</h2>
-                            <p class="text-sm text-gray-500">Informatique</p>
-                            <button class="bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-white font-bold py-2 px-4 rounded mt-5">Voter</button>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
+
+
             <div class="container m-auto px-6 flex items-end justify-between md:px-12 lg:px-7">
                 <a href="https://www.facebook.com/hary.rabenamana/" target="_blank" class="hidden space-x-4 md:flex md:items-center">
                     <img class="w-14 h-14 rounded-full object-cover" src="images/qw.png" alt="">
