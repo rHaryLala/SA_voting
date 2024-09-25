@@ -121,7 +121,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center">
                         <!-- SVG Icon d'utilisateur -->
-                        <svg class="w-16 h-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="w-24 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c-4.418 0-8 3.582-8 8h16c0-4.418-3.582-8-8-8zm0-2a4 4 0 100-8 4 4 0 000 8z" />
                         </svg>
                         <div class="ml-4">
@@ -135,27 +135,31 @@
 
 
 
-
-
-                <!-- Card 2 -->
+                <!-- Carte 2 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h2 class="text-xl font-semibold text-gray-800">Notifications</h2>
-                    <ul class="mt-2 text-gray-600">
-                        <li>Nouveau message de l'équipe</li>
-                        <li>Rappel de réunion demain</li>
-                    </ul>
+                    <div class="flex items-center">
+                        <!-- SVG Icon de candidat -->
+                        <svg class="w-24 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c-4.418 0-8 3.582-8 8h16c0-4.418-3.582-8-8-8zm0-2a4 4 0 100-8 4 4 0 000 8z" />
+                        </svg>
+                        <div class="ml-4">
+                            <h2 class="text-xl font-semibold text-gray-800">Candidats</h2>
+                            <p class="mt-2 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-500">
+                                {{ $candidatCount }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold text-gray-800">Actions Rapides</h2>
-                    <button class="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Ajouter un Projet</button>
-                    <button class="mt-2 w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Gérer l'Équipe</button>
+                    <button class="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Modifier mon profil</button>
                 </div>
             </div>
 
             <div class="mt-8">
-                <h2 class="text-2xl font-bold text-gray-800">Dernières Activités</h2>
+                <h2 class="text-2xl font-bold text-white">Dernières Activités</h2>
                 <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden mt-4">
                     <thead>
                     <tr class="bg-gray-200">

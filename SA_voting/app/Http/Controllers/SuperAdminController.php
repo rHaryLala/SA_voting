@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Candidat;
 
 class SuperAdminController extends Controller
 {
@@ -12,7 +13,10 @@ class SuperAdminController extends Controller
         // Récupérer le nombre d'utilisateurs
         $userCount = User::count();
 
-        // Passer le nombre d'utilisateurs à la vue
-        return view('superadmin', compact('userCount'));
+        // Récupérer le nombre de candidats
+        $candidatCount = Candidat::count();
+
+        // Passer le nombre d'utilisateurs et de candidats à la vue
+        return view('superadmin', compact('userCount', 'candidatCount'));
     }
 }
