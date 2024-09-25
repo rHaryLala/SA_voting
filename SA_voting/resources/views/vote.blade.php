@@ -8,11 +8,7 @@
     <link rel="shortcut icon" href="Logo_SA.png">
     @vite('resources/css/app.css')
 </head>
-<body>
-
 <body class="bg-white dark:bg-gray-900">
-
-<!--Header-->
 <div class="relative w-full">
     <nav class="absolute w-full">
         <div class="container m-auto px-6 md:px-12 lg:px-7">
@@ -36,13 +32,13 @@
 
                 <label role="button" for="toggle_nav" class="fixed w-full z-30 h-full top-0 left-0 bg-gray-700 bg-opacity-40 hidden peer-checked:block md:peer-checked:hidden"></label>
                 @if(session('error'))
-                    <div class="bg-red-500 text-white p-4 rounded mb-4">
+                    <div class="bg-red-500 text-white p-4 rounded mb-4 shadow-lg">
                         {{ session('error') }}
                     </div>
                 @endif
 
                 @if(session('success'))
-                    <div class="bg-green-500 text-white p-4 rounded mb-4">
+                    <div class="bg-green-500 text-white p-10 rounded shadow-lg">
                         {{ session('success') }}
                     </div>
                 @endif
@@ -121,33 +117,30 @@
         </div>
     </nav>
 
-
-
     <div class="min-h-screen flex">
-        <div class="absolute bottom-8 w-full">
-
-            <!--Carte des candidats-->
-            <div class="container mx-auto">
-                <div class="flex flex-wrap justify-center mb-4">
-                    @foreach($candidats as $candidat)
-                        <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
-                            <div class="bg-white rounded-[20px] shadow-md p-4">
-                                <img src="{{ asset($candidat->image) }}" alt="{{ $candidat->name }}" class="w-full rounded-[20px]">
-                                <h2 class="text-lg font-bold mt-5">{{ $candidat->name }} {{ $candidat->last_name }}</h2>
-                                <p class="text-sm text-gray-500">{{ $candidat->mention }}</p>
-                                <form action="{{ route('vote.submit', $candidat->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-white font-bold py-2 px-4 rounded mt-5">Voter</button>
-                                </form>
-                            </div>
+        <!--Carte des candidats-->
+        <div class="flex mt-48">
+            <div class="flex flex-wrap justify-center mb-4">
+                @foreach($candidats as $candidat)
+                    <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
+                        <div class="bg-white rounded-[20px] shadow-md p-4">
+                            <img src="{{ asset($candidat->image) }}" alt="{{ $candidat->name }}" class="w-full rounded-[20px]">
+                            <h2 class="text-lg font-bold mt-5">{{ $candidat->name }} {{ $candidat->last_name }}</h2>
+                            <p class="text-sm text-gray-500">{{ $candidat->mention }}</p>
+                            <form action="{{ route('vote.submit', $candidat->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-white font-bold py-2 px-4 rounded mt-5">Voter</button>
+                            </form>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
+        </div>
 
 
+        <div class="absolute bottom-8 w-full">
             <div class="container m-auto px-6 flex items-end justify-between md:px-12 lg:px-7">
-                <a href="https://www.facebook.com/hary.rabenamana/" target="_blank" class="hidden space-x-4 md:flex md:items-center">
+                <a href="https://www.facebook.com/hary.rabenamana/" class="hidden space-x-4 md:flex md:items-center">
                     <img class="w-14 h-14 rounded-full object-cover" src="images/qw.png" alt="">
                     <div class="text-gray-600 dark:text-gray-400">
                         <span class="text-sm">Question ?</span>
@@ -163,8 +156,5 @@
         </div>
     </div>
 </div>
-</body>
-
-
 </body>
 </html>

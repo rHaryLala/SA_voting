@@ -270,10 +270,20 @@
     </div>
 
     <div class="px-6 pt-6 2xl:container">
-        <div
-            class="flex h-[80vh] items-center justify-center rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600"
-        >
-            <span class="dark:text-white">Content</span>
+        <!--Carte des candidats-->
+        <div class="flex">
+            <div class="flex flex-wrap justify-center mb-4">
+                @foreach($candidats as $candidat)
+                    <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5">
+                        <div class="bg-white rounded-[20px] shadow-md p-4">
+                            <img src="{{ asset($candidat->image) }}" alt="{{ $candidat->name }}" class="w-full rounded-[20px]">
+                            <h2 class="text-lg font-bold mt-5"> {{ $candidat->last_name }}</h2>
+                            <p class="text-sm text-gray-500">{{ $candidat->mention }}</p>
+                            <button type="submit" class="w-full h-20 bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out text-black text-4xl font-extrabold py-2 px-4 rounded mt-5">{{ $candidat->votes }} VOTES</button>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>

@@ -110,55 +110,53 @@
             </div>
         </div>
     </nav>
+    <!--Candidats-->
+    <div class="container mx-auto">
+        <div class="flex flex-wrap justify-center items-start mb-4 w-full">
+            <div class="w-full p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
+                <div class="bg-gray-500 rounded-[20px] shadow-md p-6">
+                    <img src="images/pdp/kerena.JPG" alt="Témoignage de Kerena" class="w-32 h-32 rounded-full mx-auto">
 
+                    <!-- Description -->
+                    <blockquote class="mt-4 italic text-white text-center">
+                        “En faisant ce que j'aime, j'arrive à m'épanouir dans ma vie.”
+                    </blockquote>
+
+                    <div class="mt-4 text-center">
+                        <h2 class="text-lg font-bold">kerena R. RANOARILALAO</h2>
+                        <p class="text-sm text-gray-500">Communication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <div class="flex flex-wrap justify-center items-center mb-4 w-full">
+            <div class="w-full p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
+                <div class="bg-gray-500 rounded-[20px] shadow-md p-6 flex items-center">
+                    <!-- Image à gauche -->
+                    <div class="w-1/3">
+                        <img src="images/pdp/hary.JPG" alt="Témoignage de Hary" class="w-32 h-32 rounded-full mx-auto">
+                    </div>
+
+                    <!-- Témoignage à droite -->
+                    <div class="w-2/3 pl-2">
+                        <blockquote class="italic text-white">
+                            “Laravel a transformé la manière dont nous développons nos applications. Son efficacité est inégalée.”
+                        </blockquote>
+                        <div class="mt-4 text-left">
+                            <h2 class="text-lg font-bold">Hary Lala RABENAMANA</h2>
+                            <p class="text-sm text-gray-300">Informatique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="min-h-screen flex">
         <div class="absolute bottom-8 w-full">
-
-            <!--Candidats-->
-            <div class="container mx-auto">
-                <div class="flex flex-wrap justify-center items-start mb-4 w-full">
-                    <div class="w-full p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
-                        <div class="bg-gray-500 rounded-[20px] shadow-md p-6">
-                            <img src="images/pdp/kerena.JPG" alt="Témoignage de Kerena" class="w-32 h-32 rounded-full mx-auto">
-
-                            <!-- Description -->
-                            <blockquote class="mt-4 italic text-white text-center">
-                                “En faisant ce que j'aime, j'arrive à m'épanouir dans ma vie.”
-                            </blockquote>
-
-                            <div class="mt-4 text-center">
-                                <h2 class="text-lg font-bold">kerena R. RANOARILALAO</h2>
-                                <p class="text-sm text-gray-500">Communication</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container mx-auto">
-                <div class="flex flex-wrap justify-center items-center mb-4 w-full">
-                    <div class="w-full md:w-1/2 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
-                        <div class="bg-gray-500 rounded-[20px] shadow-md p-6 flex items-center">
-                            <!-- Image à gauche -->
-                            <div class="w-1/3">
-                                <img src="images/pdp/hary.JPG" alt="Témoignage de Hary" class="w-32 h-32 rounded-full mx-auto">
-                            </div>
-
-                            <!-- Témoignage à droite -->
-                            <div class="w-2/3 pl-4">
-                                <blockquote class="italic text-white">
-                                    “Laravel a transformé la manière dont nous développons nos applications. Son efficacité est inégalée.”
-                                </blockquote>
-                                <div class="mt-4 text-left">
-                                    <h2 class="text-lg font-bold">Hary L. RABENAMANA</h2>
-                                    <p class="text-sm text-gray-300">Informatique</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="container m-auto px-6 flex items-end justify-between md:px-12 lg:px-7">
                 <a href="https://www.facebook.com/hary.rabenamana/" target="_blank" class="hidden space-x-4 md:flex md:items-center">

@@ -8,8 +8,6 @@
     <link rel="shortcut icon" href="Logo_SA.png">
     @vite('resources/css/app.css')
 </head>
-<body>
-
 <body class="bg-white dark:bg-gray-900">
 <div class="relative w-full">
     <nav class="absolute w-full">
@@ -142,6 +140,5 @@
         </div>
     </div>
 </div>
-</body>
 </body>
 </html>
