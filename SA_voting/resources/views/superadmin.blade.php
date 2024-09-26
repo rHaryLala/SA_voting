@@ -133,14 +133,13 @@
                     </div>
                 </div>
 
-
-
                 <!-- Carte 2 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center">
                         <!-- SVG Icon de candidat -->
                         <svg class="w-24 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c-4.418 0-8 3.582-8 8h16c0-4.418-3.582-8-8-8zm0-2a4 4 0 100-8 4 4 0 000 8z" />
+                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 22c0-4.418 3.582-8 8-8s8 3.582 8 8" />
                         </svg>
                         <div class="ml-4">
                             <h2 class="text-xl font-semibold text-gray-800">Candidats</h2>
@@ -154,8 +153,14 @@
                 <!-- Card 3 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold text-gray-800">Actions Rapides</h2>
-                    <button class="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Modifier mon profil</button>
+                    <button class="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 3l3.25 3.25-2.625 2.625-3.25-3.25L13.875 3zM16.5 9.75L6 20.25V21h.75l10.5-10.5-2.25-2.25z" />
+                        </svg>
+                        Modifier mon profil
+                    </button>
                 </div>
+
             </div>
 
             <div class="mt-8">

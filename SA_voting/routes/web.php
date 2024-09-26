@@ -3,6 +3,7 @@
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ResultatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperAdminController;
@@ -48,6 +49,10 @@ Route::get('userdb', [UserController::class, 'index'])
 Route::get('candidatdb', [CandidatController::class, 'index'])
     ->middleware(['auth', 'verified', 'superadmin'])
     ->name('candidatdb');
+
+Route::get('studentdb', [StudentController::class, 'index'])
+    ->middleware(['auth', 'verified', 'superadmin'])
+    ->name('studentdb');
 
 Route::get('resultatdb', [ResultatController::class, 'index'])
     ->middleware(['auth', 'verified', 'superadmin'])

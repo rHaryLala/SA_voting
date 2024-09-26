@@ -119,8 +119,8 @@
 
     <div class="min-h-screen flex">
         <!--Carte des candidats-->
-        <div class="flex mt-48">
-            <div class="flex flex-wrap justify-center mb-4">
+        <div class="flex mt-40">
+            <div class="flex flex-wrap justify-center mb-20">
                 @foreach($candidats as $candidat)
                     <div class="w-full md:w-1/4 xl:w-1/4 p-4 mt-5 hover:scale-105 transition duration-300 ease-in-out">
                         <div class="bg-white rounded-[20px] shadow-md p-4">
